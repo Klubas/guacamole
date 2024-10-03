@@ -53,13 +53,6 @@ COPY build.sh /tmp/build.sh
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit
-
-RUN curl -O https://codeload.github.com/chabad360/cockpit-docker/zip/refs/heads/main && \
-    unzip main && \
-    cd cockpit-docker && \
-    make && \
-    make install && \
-    ostree container commit
     
 ## NOTES:
 # - /var/lib/alternatives is required to prevent failure with some RPM installs
