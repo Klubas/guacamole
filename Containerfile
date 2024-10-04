@@ -54,7 +54,7 @@ RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit
 
-WORKDIR /var/home/core
+WORKDIR /var/home-server
 COPY balena-media-server .
 
 ## NOTES:
