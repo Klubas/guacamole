@@ -48,7 +48,7 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
-RUN mkdir -p $HOME/.ssh
+RUN mkdir -p $HOME/.ssh && ostree container commit
 RUN echo $SSH_KEY > $HOME/.ssh/id_ed25519 && ostree container commit
 COPY id_ed25519.pub $HOME/.ssh
 
