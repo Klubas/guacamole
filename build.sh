@@ -13,7 +13,7 @@ RELEASE="$(rpm -E %fedora)"
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-rpm-ostree install docker
+rpm-ostree install docker docker-compose
 
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
@@ -36,6 +36,8 @@ curl -O https://codeload.github.com/chabad360/cockpit-docker/zip/refs/heads/main
     make install
 
 systemctl enable cockpit.service 
+
+git clone git@github.com:Klubas/balena-media-server.git
 
 # echo 'PasswordAuthentication yes' | sudo tee /etc/ssh/sshd_config.d/02-enable-passwords.conf
 # sudo systemctl try-restart sshd
