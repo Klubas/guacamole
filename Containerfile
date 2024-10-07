@@ -33,7 +33,7 @@ ARG SOURCE_IMAGE="ucore"
 # - stable-zfs
 # - stable-nvidia-zfs
 # - (and the above with testing rather than stable)
-#ARG SOURCE_SUFFIX="-stable"
+ARG SOURCE_SUFFIX=""
 
 ## SOURCE_TAG arg must be a version built for the specific image: eg, 39, 40, gts, latest
 ARG SOURCE_TAG="latest"
@@ -53,9 +53,6 @@ COPY build.sh /tmp/build.sh
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit
-
-WORKDIR /var/home-server
-COPY balena-media-server .
 
 ## NOTES:
 # - /var/lib/alternatives is required to prevent failure with some RPM installs

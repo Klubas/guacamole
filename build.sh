@@ -15,6 +15,7 @@ rpm-ostree install cockpit-system cockpit-ostree \
                     cockpit-podman cockpit-networkmanager \
                     cockpit-files
 
+rpm-ostree install unzip gettext nodejs make
 
 curl -O https://codeload.github.com/chabad360/cockpit-docker/zip/refs/heads/main && \
     unzip main && \
@@ -23,3 +24,6 @@ curl -O https://codeload.github.com/chabad360/cockpit-docker/zip/refs/heads/main
     make install
 
 systemctl enable cockpit.service 
+
+rpm-ostree uninstall unzip gettext nodejs make
+
