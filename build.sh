@@ -25,5 +25,5 @@ curl -O https://codeload.github.com/chabad360/cockpit-docker/zip/refs/heads/main
 
 systemctl enable cockpit.service 
 
-rpm-ostree uninstall unzip gettext nodejs make
+# rpm-ostree uninstall unzip gettext nodejs make
 
