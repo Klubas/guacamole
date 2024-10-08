@@ -14,12 +14,9 @@ rpm-ostree install cockpit-system cockpit-ostree \
 
 rpm-ostree install unzip gettext nodejs make
 
-
-git cd /tmp && \
-    clone https://github.com/chabad360/cockpit-docker && \
-    cd cockpit-docker && \
-    make && \
-    make install
+git clone https://github.com/chabad360/cockpit-docker /tmp/cockpit-docker && \
+    cd /tmp/cockpit-docker && \
+    make && make install
 
 # Enable services
 systemctl enable docker.socket

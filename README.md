@@ -3,6 +3,7 @@
 # Todo
 - Mover chave publica ssh para um arquivo
 - Mover chave privada ssh para um arquivo
+- usar multistage build para o cockpit-docker
 
 # Purpose
 
