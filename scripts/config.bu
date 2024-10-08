@@ -1,0 +1,70 @@
+variant: fcos
+version: 1.5.0
+passwd:
+  users:
+    - name: core
+      password_hash: $y$j9T$Ba/eBXS/q8qPxb1Rd1k231$7wi9Y.2i463prlvjXbqZv97NGQpmXKbJLqunGW4TRS4
+      ssh_authorized_keys_local:
+        - users/core/ssh/id_ed25519.pub
+storage:
+  files:
+    - path: /var/home/core/.ssh/id_ed25519
+      contents:
+        local: users/core/ssh/id_ed25519
+      mode: 0600
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/.config/systemd/user/media-server-install.service
+      contents: 
+        local: users/core/units/media-server-install.service
+      mode: 0644
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/.config/systemd/user/media-server-update.service
+      contents: 
+        local: users/core/units/media-server-update.service
+      mode: 0644
+      user:
+        name: core
+      group:
+        name: core
+  directories:
+    - path: /etc/ucore-autorebase
+      mode: 0754
+    - path: /home/core/.config/systemd/user/default.target.wants
+      mode: 0755
+      user:
+        name: core
+      group:
+        name: core
+  links:
+    - path: /home/core/.config/systemd/user/default.target.wants/media-server-install.service
+      user:
+        name: core
+      group:
+        name: core
+      target: /home/core/.config/systemd/user/media-server-install.service
+      hard: false
+    - path: /home/core/.config/systemd/user/default.target.wants/media-server-update.service
+      user:
+        name: core
+      group:
+        name: core
+      target: /home/core/.config/systemd/user/media-server-update.service
+      hard: false
+systemd:
+  units:
+    - name: ucore-unsigned-autorebase.service
+      enabled: true
+      contents_local: users/root/units/ucore-unsigned-autorebase.service
+    - name: ucore-signed-autorebase.service
+      enabled: true
+      contents_local: users/root/units/ucore-signed-autorebase.service
+    - name: add-user-group.service
+      enabled: true
+      contents_local: users/root/units/add-user-group.service
+        

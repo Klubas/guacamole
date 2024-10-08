@@ -1,0 +1,121 @@
+{
+  "ignition": {
+    "version": "3.4.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "passwordHash": "$y$j9T$Ba/eBXS/q8qPxb1Rd1k231$7wi9Y.2i463prlvjXbqZv97NGQpmXKbJLqunGW4TRS4",
+        "sshAuthorizedKeys": [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINORmaXdvgsv/U8B2OOHx6YSz2eqx9Gni55PjI0YHr04 klubas@bluefin"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "directories": [
+      {
+        "path": "/etc/ucore-autorebase",
+        "mode": 492
+      },
+      {
+        "group": {
+          "name": "core"
+        },
+        "path": "/home/core/.config/systemd/user/default.target.wants",
+        "user": {
+          "name": "core"
+        },
+        "mode": 493
+      }
+    ],
+    "files": [
+      {
+        "group": {
+          "name": "core"
+        },
+        "path": "/var/home/core/.ssh/id_ed25519",
+        "user": {
+          "name": "core"
+        },
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/5yQzY6yMBiF91yFN/DFP+CDhYsWGsDBFoT60521ilRKRkEUrn5Sk0lmM5t5FidN+ubJyfmngSiI8IgkCGdZOErW0QbkaPSB9u9fg89hxWs8HLzpne2urZAIaGBgdVxR/URcuQ+Wgm+gjtVTZzscZ0XLtkba45y+iD7y/PzKVDXnZhyPpwkQUl6ck0KNW9+a8/rTfJxys8cBtF2iHUspMuK4cyo7I0l/Wv8qNXRpiJ0Cx9GwstWq65kbx1b8v8alPRQe8DZHci5R4gjqeBKTtTrsRFc03Zg6cEZI+LL3mTHMTreXG9SlZSUymuzD+8TU/XzVNmK7vBwnsOThpmKqeoA08iGgAXwuFsZ7WoT9X2f/CgAA///VQRKjmgEAAA=="
+        },
+        "mode": 384
+      },
+      {
+        "group": {
+          "name": "core"
+        },
+        "path": "/home/core/.config/systemd/user/media-server-install.service",
+        "user": {
+          "name": "core"
+        },
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/4ySwW7UMBCG73kKc+oBnNyRUgGlB8QBpAVxWK3QxJ5uhjgz0cx427w96i5St6iV9mrP91v+/tn+ZPJd8xktKS1Owv1NEcYwYyaIhnpADYqLNDfCmR4nvoOPtw9kbv2b7gDajTJjl0SxG6AgQzyHm493jtoz+r3oFIULMbYOukdvfgG7vXK33aAeKOGu+bEu2AujjeLNxoEzaP5Wfane/5GqDOVtEjYp2Nw+YNo4qPfdQNzZGGIKV2ZjnHC1BByiBzV4lw3CnnysQ5tkDtfX4b+/tGZjN7Hc8+9RzO3qLHtPHtLR0578w1PM+6+lDmAveWgfmQt0PT2SJU2oMcm8iGGIdxfg3XOoXecS4hJemAxDpZLPfVXTk7PVHOfkJcRYDTVkMhjK852IxOZQSmunlprtl9PB7lgq5k9rP9fidIz41+nfAAAA//8t6+hObgIAAA=="
+        },
+        "mode": 420
+      },
+      {
+        "group": {
+          "name": "core"
+        },
+        "path": "/home/core/.config/systemd/user/media-server-update.service",
+        "user": {
+          "name": "core"
+        },
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/4TOsU7EMAzG8T1PkR2FPkEGOG5gAqmcGKoOJjGtIbUjxyl3b49ADCyI+fv+0m86Mdns7rAlpWokHE81g6HfMBOEhrqjesUq7iCc6evyCLYez9SsxWEHHVbZcEiiOLxAQYbwu3U3r4YaGe1D9D0IF2K8NtAFzT0DW/tjm0bUnRLO7ulSMQpjW8XcaMAZND90q93im3RlKFdJuElBdzxjGg3U4kLmw8H/L/S1l+JFaSH2GxC76Z6bQSnzNxDz7SVuvRiF3lB/fJ8BAAD//9xVYwQ6AQAA"
+        },
+        "mode": 420
+      }
+    ],
+    "links": [
+      {
+        "group": {
+          "name": "core"
+        },
+        "path": "/home/core/.config/systemd/user/default.target.wants/media-server-install.service",
+        "user": {
+          "name": "core"
+        },
+        "hard": false,
+        "target": "/home/core/.config/systemd/user/media-server-install.service"
+      },
+      {
+        "group": {
+          "name": "core"
+        },
+        "path": "/home/core/.config/systemd/user/default.target.wants/media-server-update.service",
+        "user": {
+          "name": "core"
+        },
+        "hard": false,
+        "target": "/home/core/.config/systemd/user/media-server-update.service"
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=uCore autorebase to unsigned OCI and reboot\nConditionPathExists=!/etc/ucore-autorebase/unverified\nConditionPathExists=!/etc/ucore-autorebase/signed\nAfter=network-online.target\nWants=network-online.target\n[Service]\nType=oneshot\nStandardOutput=journal+console\nExecStart=/usr/bin/rpm-ostree rebase --bypass-driver ostree-unverified-registry:ghcr.io/ublue-os/ucore:stable\nExecStart=/usr/bin/touch /etc/ucore-autorebase/unverified\nExecStart=/usr/bin/systemctl disable ucore-unsigned-autorebase.service\nExecStart=/usr/bin/systemctl reboot\n[Install]\nWantedBy=multi-user.target",
+        "enabled": true,
+        "name": "ucore-unsigned-autorebase.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=uCore autorebase to signed OCI and reboot\nConditionPathExists=/etc/ucore-autorebase/unverified\nConditionPathExists=!/etc/ucore-autorebase/verified\nAfter=network-online.target\nWants=network-online.target\n[Service]\nType=oneshot\nStandardOutput=journal+console\nExecStart=/usr/bin/rpm-ostree rebase --bypass-driver ostree-image-signed:docker://ghcr.io/klubas/guacamole:latest\nExecStart=/usr/bin/touch /etc/ucore-autorebase/signed\nExecStart=/usr/bin/systemctl disable ucore-signed-autorebase.service\nExecStart=/usr/bin/systemctl reboot\n[Install]\nWantedBy=multi-user.target",
+        "enabled": true,
+        "name": "ucore-signed-autorebase.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=Add core user to docker group\n[Service]\nType=oneshot\nStandardOutput=journal+console\nExecStart=usermod -aG docker core\nExecStart=/usr/bin/systemctl disable add-user-group.service\n[Install]\nWantedBy=multi-user.target",
+        "enabled": true,
+        "name": "add-user-group.service"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+[Unit]
+Description=Add core user to docker group
+[Service]
+Type=oneshot
+StandardOutput=journal+console
+ExecStart=usermod -aG docker core
+ExecStart=/usr/bin/systemctl disable add-user-group.service
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Clone media-server repo
+ConditionPathExists=!/var/home/core/balena-media-server
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=oneshot
+StandardOutput=journal+console
+ExecStart=/bin/sh -c 'ssh-keyscan -t rsa,dsa github.com >> /var/home/core/.ssh/known_hosts'
+ExecStart=git clone git@github.com:Klubas/balena-media-server.git /var/home/core/balena-media-server
+ExecStart=docker-compose -f /var/home/core/balena-media-server/docker-compose.yml -p balena-media-server build
+ExecStart=/usr/bin/systemctl --user disable media-server-install.service
+[Install]
+WantedBy=multi-user.target

@@ -1,3 +1,0 @@
-[submodule "balena-media-server"]
-	path = balena-media-server
-	url = git@github.com:Klubas/balena-media-server.git
