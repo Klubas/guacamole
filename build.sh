@@ -4,11 +4,8 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
-### Install packages
+### Install docker
 rpm-ostree install docker docker-compose
-
-systemctl enable podman.socket
-systemctl enable docker.socket
 
 ## Instal cockpit
 rpm-ostree install cockpit-system cockpit-ostree \
@@ -17,12 +14,14 @@ rpm-ostree install cockpit-system cockpit-ostree \
 
 rpm-ostree install unzip gettext nodejs make
 
-curl -O https://codeload.github.com/chabad360/cockpit-docker/zip/refs/heads/main && \
-    unzip main && \
+git clone https://github.com/chabad360/cockpit-docker && \
     cd cockpit-docker && \
     make && \
     make install
 
+
+# Enable services
+systemctl enable docker.socket
 systemctl enable cockpit.service 
 
 # rpm-ostree uninstall unzip gettext nodejs make

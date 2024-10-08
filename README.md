@@ -1,5 +1,9 @@
 # image-template
 
+# Todo
+- Mover chave publica ssh para um arquivo
+- Mover chave privada ssh para um arquivo
+
 # Purpose
 
 This repository is meant to be a template for building your own custom Universal Blue image. This template is the recommended way to make customizations to any image published by the Universal Blue Project:
