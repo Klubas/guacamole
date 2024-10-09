@@ -14,7 +14,7 @@ rpm-ostree install cockpit-system cockpit-ostree \
 
 # Enable services
 systemctl enable docker.socket
-systemctl enable cockpit.service 
+systemctl enable cockpit.socket
 
 rpm-ostree install make
 cd /tmp && \
