@@ -1,0 +1,14 @@
+[Unit]
+Description=Autorebase to guacamole and reboot
+ConditionPathExists=!/etc/guacamole-autorebase/signed
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=oneshot
+StandardOutput=journal+console
+ExecStart=/usr/bin/rpm-ostree rebase --bypass-driver ostree-image-signed:docker://ghcr.io/klubas/guacamole:latest
+ExecStart=/usr/bin/touch /etc/guacamole-autorebase/signed
+ExecStart=/usr/bin/systemctl disable guacamole-autorebase.service
+ExecStart=/usr/bin/systemctl reboot
+[Install]
+WantedBy=multi-user.target

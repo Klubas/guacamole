@@ -1,5 +1,5 @@
 #!/bin/bash
-IGNITION_CONFIG="$HOME/dev/guacamole/scripts/ignition.ign"
+IGNITION_CONFIG="$HOME/dev/guacamole/ignition.ign"
 IMAGE="$HOME/.local/share/libvirt/images/guacamole/fedora-coreos-40.20240906.3.0-qemu.x86_64.qcow2"
 VM_NAME="guacamole-01"
 VCPUS="4"

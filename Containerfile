@@ -12,6 +12,7 @@ FROM quay.io/fedora/fedora-coreos:stable
 RUN rpm-ostree install \
         docker \
         docker-compose \
+        cockpit \
         cockpit-system \
         cockpit-ostree \
         cockpit-podman \
@@ -21,7 +22,7 @@ RUN rpm-ostree install \
 
 # Enable services
 RUN systemctl enable docker.socket  && ostree container commit
-# RUN systemctl enable cockpit.socket && ostree container commit
+RUN systemctl enable cockpit.socket && ostree container commit
 
 ### Install cockpit-docker
 WORKDIR /usr/local/share/cockpit/docker/
