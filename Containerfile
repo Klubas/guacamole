@@ -14,7 +14,7 @@ RUN rpm-ostree install \
 RUN echo 'PasswordAuthentication yes' | tee /etc/ssh/sshd_config.d/02-enable-passwords.conf && \
     ostree container commit
 
-RUN systemctl enable cockpit.socket && \
+RUN systemctl enable cockpit.service && \
     ostree container commit
 
 # Enable autoupdate
