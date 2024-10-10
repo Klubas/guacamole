@@ -72,10 +72,14 @@ systemd:
     #- name: ucore-signed-autorebase.service
     #  enabled: true
     #  contents_local: users/system/units/ucore-signed-autorebase.service
-    - name: guacamole-autorebase.service
-      enabled: true
-      contents_local: users/system/units/guacamole-autorebase.service
     #- name: add-user-group.service
     #  enabled: true
     #  contents_local: users/system/units/add-user-group.service
+    - name: guacamole-autorebase.service
+      enabled: true
+      contents_local: users/system/units/guacamole-autorebase.service
+    - name: chown-core-config.service
+      enabled: true
+      contents_local: users/system/units/chown-core-config.service
+    
         

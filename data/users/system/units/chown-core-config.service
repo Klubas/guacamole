@@ -1,0 +1,11 @@
+[Unit]
+Description=chown .config to core
+
+[Service]
+Type=oneshot
+StandardOutput=journal+console
+ExecStart=chown core:core /var/home/core/.config
+ExecStart=/usr/bin/systemctl disable chown-core-config.service
+
+[Install]
+WantedBy=multi-user.target
