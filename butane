@@ -2,8 +2,8 @@
 podman run \
        --interactive --rm --security-opt label=disable \
        --volume ${PWD}:/pwd \
-       --volume ${HOME}/dev/guacamole/guacamole-scripts:/guacamole-scripts \
+       --volume ${HOME}/dev/guacamole/data:/data \
        --workdir /pwd quay.io/coreos/butane:release \
-       --files-dir /guacamole-scripts \
+       --files-dir /data \
        --pretty --strict \
        config.bu > ignition.ign
