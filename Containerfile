@@ -11,13 +11,13 @@ RUN rpm-ostree install \
         cockpit-files && \
     ostree container commit
 
-RUN echo 'PasswordAuthentication yes' | sudo tee /etc/ssh/sshd_config.d/02-enable-passwords.conf && \
+RUN echo 'PasswordAuthentication yes' | tee /etc/ssh/sshd_config.d/02-enable-passwords.conf && \
     ostree container commit
 
 RUN systemctl enable cockpit.socket && \
     ostree container commit
 
-# enable autoupdate
+# Enable autoupdate
 WORKDIR /
 ADD data/usr usr
 RUN systemctl mask zincati && ostree container commit

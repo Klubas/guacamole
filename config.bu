@@ -68,14 +68,14 @@ systemd:
   units:
     #- name: ucore-unsigned-autorebase.service
     #  enabled: true
-    #  contents_local: users/root/units/ucore-unsigned-autorebase.service
+    #  contents_local: users/system/units/ucore-unsigned-autorebase.service
     #- name: ucore-signed-autorebase.service
     #  enabled: true
-    #  contents_local: users/root/units/ucore-signed-autorebase.service
+    #  contents_local: users/system/units/ucore-signed-autorebase.service
     - name: guacamole-autorebase.service
       enabled: true
-      contents_local: users/root/units/guacamole-autorebase.service
+      contents_local: users/system/units/guacamole-autorebase.service
     #- name: add-user-group.service
     #  enabled: true
-    #  contents_local: users/root/units/add-user-group.service
+    #  contents_local: users/system/units/add-user-group.service
         
