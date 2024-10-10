@@ -1,5 +1,6 @@
 [Unit]
 Description=Clone media-server repo
+ConditionPathExists=/etc/guacamole-autorebase/unsigned
 ConditionPathExists=!/var/home/core/balena-media-server
 After=network-online.target
 Wants=network-online.target

@@ -6,4 +6,4 @@ podman run \
        --workdir /pwd quay.io/coreos/butane:release \
        --files-dir /data \
        --pretty --strict \
-       config.bu > ignition.ign
+       config.bu > config.ign

@@ -5,12 +5,20 @@ passwd:
     - name: core
       password_hash: $y$j9T$Ba/eBXS/q8qPxb1Rd1k231$7wi9Y.2i463prlvjXbqZv97NGQpmXKbJLqunGW4TRS4
       ssh_authorized_keys_local:
-        - users/core/ssh/id_ed25519.pub
+        - users/core/ssh/id_ed25519_host.pub
 storage:
   files:
     - path: /var/home/core/.ssh/id_ed25519
       contents:
         local: users/core/ssh/id_ed25519
+      mode: 0600
+      user:
+        name: core
+      group:
+        name: core
+    - path: /var/home/core/.ssh/id_ed25519.pub
+      contents:
+        local: users/core/ssh/id_ed25519.pub
       mode: 0600
       user:
         name: core
@@ -67,7 +75,7 @@ systemd:
     - name: guacamole-autorebase.service
       enabled: true
       contents_local: users/root/units/guacamole-autorebase.service
-    - name: add-user-group.service
-      enabled: true
-      contents_local: users/root/units/add-user-group.service
+    #- name: add-user-group.service
+    #  enabled: true
+    #  contents_local: users/root/units/add-user-group.service
         
